@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Sprout, Users, Drum, ArrowRight } from "lucide-react";
+import { Sprout, Users, Drum, ArrowRight, HeartHandshake } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Reveal } from "@/components/ui/Reveal";
@@ -17,10 +17,6 @@ import { Lightbox } from "@/components/ui/Lightbox";
  * y #community siguen existiendo como anclas internas.
  */
 const GALLERY_IMAGES = [
-  {
-    src: "/images/gallery-training.jpg",
-    alt: "Move Zanzibar acrobats practicing handstands together at the community centre's training yard",
-  },
   {
     src: "/images/gallery-circle.jpg",
     alt: "A group training session with visitors and local artists gathered at the painted mural wall",
@@ -53,16 +49,16 @@ export function YouthCommunity() {
         {/* ------------------------------------------------- Youth Program */}
         <div
           id="youth-program"
-          className="mt-14 grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-16"
+          className="mt-14 grid scroll-mt-24 items-start gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14"
         >
           <Reveal delay={80}>
-            <div className="flex flex-col gap-4">
-              <div className="relative aspect-[1320/1426] w-full overflow-hidden rounded-3xl shadow-photo">
+            <div className="mx-auto flex max-w-sm flex-col gap-4 lg:mx-0 lg:max-w-none">
+              <div className="relative aspect-[1200/1600] w-full overflow-hidden rounded-3xl shadow-photo">
                 <Image
                   src="/images/youth.jpg"
                   alt="A Move Zanzibar acrobat balancing in a handstand on a teammate's shoulder, on the beach in Jambiani"
                   fill
-                  sizes="(max-width: 1024px) 90vw, 45vw"
+                  sizes="(max-width: 1024px) 90vw, 34vw"
                   className="object-cover"
                 />
               </div>
@@ -71,7 +67,7 @@ export function YouthCommunity() {
                   src="/images/training-english.JPEG"
                   alt="Children in a free English lesson at the Move Zanzibar Community Centre"
                   fill
-                  sizes="(max-width: 1024px) 90vw, 45vw"
+                  sizes="(max-width: 1024px) 90vw, 34vw"
                   className="object-cover"
                 />
               </div>
@@ -99,13 +95,33 @@ export function YouthCommunity() {
                 </span>
               ))}
             </div>
+            {/* Rellena el espacio que deja un texto más corto que la foto, con
+                contenido real (no decorativo): el entrenamiento es gratis
+                porque alguien lo sostiene. */}
+            <div className="mt-6 flex items-center gap-4 rounded-2xl bg-brand-soft px-5 py-4">
+              <span className="grid size-11 shrink-0 place-items-center rounded-full bg-brand/15 text-brand">
+                <HeartHandshake size={20} aria-hidden />
+              </span>
+              <div className="flex-1">
+                <p className="text-sm font-semibold leading-snug text-charcoal">
+                  {youth.trainingCtaBody}
+                </p>
+                <a
+                  href="#support"
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand hover:text-brand-dark"
+                >
+                  {youth.trainingCtaLabel}
+                  <ArrowRight size={13} aria-hidden />
+                </a>
+              </div>
+            </div>
           </Reveal>
         </div>
 
         {/* ----------------------------------------------------- Community */}
         <div
           id="community"
-          className="mt-24 grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-16"
+          className="mt-24 grid scroll-mt-24 items-start gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14"
         >
           <Reveal delay={80} className="order-2 lg:order-1">
             <div className="flex items-center gap-3">
@@ -137,14 +153,14 @@ export function YouthCommunity() {
               </a>
             </div>
           </Reveal>
-          <Reveal delay={140} className="order-1 lg:order-2">
-            <div className="flex flex-col gap-4">
+          <Reveal delay={140} className="order-1 lg:order-2 lg:pt-3">
+            <div className="mx-auto flex max-w-sm flex-col gap-4 lg:mx-0 lg:max-w-none">
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl shadow-photo">
                 <Image
                   src="/images/community-life.jpg"
                   alt="Children from the Move Zanzibar community sitting together, listening to a young performer with a microphone, palm trees behind them"
                   fill
-                  sizes="(max-width: 1024px) 90vw, 45vw"
+                  sizes="(max-width: 1024px) 90vw, 36vw"
                   className="object-cover"
                 />
               </div>
@@ -153,7 +169,7 @@ export function YouthCommunity() {
                   src="/images/community-play.JPEG"
                   alt="Children playing together on the painted mural wall at the Move Zanzibar Community Centre"
                   fill
-                  sizes="(max-width: 1024px) 90vw, 45vw"
+                  sizes="(max-width: 1024px) 90vw, 36vw"
                   className="object-cover"
                 />
               </div>

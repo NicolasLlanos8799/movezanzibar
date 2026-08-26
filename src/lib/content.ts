@@ -53,6 +53,8 @@ export type Copy = {
     trainingTitle: string;
     trainingBody: string;
     trainingExtras: string[];
+    trainingCtaBody: string;
+    trainingCtaLabel: string;
     communityTitle: string;
     communityBody: string;
     communityTag: string;
@@ -160,6 +162,8 @@ export const CONTENT: Record<Lang, Copy> = {
       trainingBody:
         "Free training for children and teenagers, focused on movement, discipline, and confidence. High-performance training takes consistency — and mastering a handstand or a group choreography gives young people from vulnerable backgrounds real, earned self-belief.",
       trainingExtras: ["Free English lessons", "Food & a safe space"],
+      trainingCtaBody: "Every donation helps keep this training free for kids who couldn't otherwise afford it.",
+      trainingCtaLabel: "Support the program",
       communityTitle: "A Living Community",
       communityBody:
         "Our artists live, train, cook, and manage the center together — a life built on Ubuntu, the philosophy of \"I am because we are.\" In collective acrobatics, a teammate's safety depends literally on you, which builds a fraternity that runs deep.",
@@ -281,6 +285,8 @@ export const CONTENT: Record<Lang, Copy> = {
       trainingBody:
         "Mafunzo ya bure kwa watoto na vijana, yanayolenga mwendo, nidhamu na kujiamini. Mafunzo ya kiwango cha juu yanahitaji uthabiti — na kufaulu handstand au choreography ya kikundi humpa kijana kutoka mazingira magumu kujiamini kwa kweli, kulikopatikana kwa jitihada.",
       trainingExtras: ["Masomo ya Kiingereza bure", "Chakula na mahali salama"],
+      trainingCtaBody: "Kila mchango husaidia mafunzo haya kubaki bure kwa watoto wasioweza kumudu vinginevyo.",
+      trainingCtaLabel: "Unga mkono programu",
       communityTitle: "Jamii Hai",
       communityBody:
         "Wasanii wetu wanaishi, kufanya mazoezi, kupika na kuendesha kituo pamoja — maisha yaliyojengwa juu ya Ubuntu, falsafa ya \"mimi nipo kwa sababu sisi tupo.\" Katika sarakasi ya pamoja, usalama wa mwenzako unategemea wewe moja kwa moja, jambo linalojenga undugu wa kina.",
