@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   MOVE ZANZIBAR — DESIGN SYSTEM (v2 · informativo)
+   Fiel al logotipo real: círculo naranja mandarina, trazo manuscrito blanco.
+   Tono editorial / institucional — sin sombras duras tipo neubrutalismo.
+   ========================================================================== */
+@theme {
+  /* --- Paleta de marca --- */
+  /* Naranja mandarina del logo: color primario, botones y acentos clave. */
+  --color-brand: #e04f16;
+  --color-brand-dark: #b83e10;
+  --color-brand-soft: #fdece3;
+  /* Turquesa: uso deliberadamente moderado (detalles, no fondos de sección). */
+  --color-turquoise: #00aec7;
+  --color-turquoise-soft: #e2f7fb;
+  --color-charcoal: #1a1a1a;
+  --color-charcoal-soft: #4a4a4a;
+  --color-cloud: #f8f9fa;
+  --color-line: #e7e5e2;
+
+  /* --- Tipografía (variables inyectadas por next/font en layout.tsx) --- */
+  /* Manuscrita: SOLO como acento de una palabra/frase corta (eco del logo). */
+  --font-hand: var(--font-caveat), cursive;
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* --- Sombras suaves / editoriales (nada de offset sólido) --- */
+  --shadow-card: 0 1px 2px rgba(26, 26, 26, 0.04), 0 8px 24px rgba(26, 26, 26, 0.07);
+  --shadow-card-hover: 0 4px 10px rgba(26, 26, 26, 0.06), 0 16px 32px rgba(26, 26, 26, 0.1);
+  --shadow-photo: 0 20px 50px rgba(26, 26, 26, 0.18);
+
+  /* --- Animaciones --- */
+  --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* Zoom/pan lentísimo tipo Ken Burns, para que el Hero (foto fija) se
+     sienta con vida mientras no haya video real. */
+  --animate-kenburns: kenburns 22s ease-in-out infinite alternate;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.12) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+/* Quien prefiere menos movimiento, no recibe la animación. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-kenburns {
+    animation: none;
+  }
+}
+
+/* --- Lightbox --- */
+@keyframes lightbox-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightbox-image-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-lightbox-overlay {
+  animation: lightbox-overlay-in 0.25s ease-out both;
+}
+
+.animate-lightbox-image {
+  animation: lightbox-image-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-lightbox-overlay,
+  .animate-lightbox-image {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-turquoise);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   UTILIDADES DE MARCA
+   ========================================================================== */
+
+/* Firma manuscrita — eco directo del trazo del logo. Uso puntual, nunca en
+   párrafos ni titulares completos. */
+@utility font-hand {
+  font-family: var(--font-hand);
+}
+
+/* Textura sutil para fondos claros (evita el plano muerto en secciones grandes). */
+@utility bg-grain {
+  background-image: radial-gradient(var(--color-charcoal) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.04;
+}
