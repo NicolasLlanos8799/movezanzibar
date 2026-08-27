@@ -127,8 +127,8 @@ export const CONTENT: Record<Lang, Copy> = {
     },
     hero: {
       eyebrow: "Jambiani · Zanzibar",
-      titleLine1: "Empowering Youth Through Art",
-      titleAccent: "& Movement",
+      titleLine1: "Community Centre",
+      titleAccent: "Acrobatics, After School Activities & Learning",
       subtitle:
         "We provide young talents in Zanzibar with the opportunity to develop their skills and build a better future.",
       cta: "Discover our story",
@@ -230,7 +230,7 @@ export const CONTENT: Record<Lang, Copy> = {
       bookingWhatsappLabel: "Request a booking on WhatsApp",
     },
     footer: {
-      tagline: "Empowering youth through art & movement.",
+      tagline: "A community centre for acrobatics, after-school activities, and learning. NGO.",
       rights: "All rights reserved.",
     },
   },
@@ -250,8 +250,8 @@ export const CONTENT: Record<Lang, Copy> = {
     },
     hero: {
       eyebrow: "Jambiani · Zanzibar",
-      titleLine1: "Kuwawezesha Vijana Kupitia Sanaa",
-      titleAccent: "na Mwendo",
+      titleLine1: "Kituo cha Jamii",
+      titleAccent: "Sarakasi, Shughuli za Baada ya Shule na Kujifunza",
       subtitle:
         "Tunawapa vipaji vichanga vya Zanzibar fursa ya kukuza ujuzi wao na kujenga maisha bora ya baadaye.",
       cta: "Gundua hadithi yetu",
@@ -353,7 +353,7 @@ export const CONTENT: Record<Lang, Copy> = {
       bookingWhatsappLabel: "Omba booking kwa WhatsApp",
     },
     footer: {
-      tagline: "Kuwawezesha vijana kupitia sanaa na mwendo.",
+      tagline: "Kituo cha jamii cha sarakasi, shughuli za baada ya shule, na kujifunza. NGO.",
       rights: "Haki zote zimehifadhiwa.",
     },
   },

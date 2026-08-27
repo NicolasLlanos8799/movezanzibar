@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { Sprout, Users, Drum, ArrowRight, HeartHandshake } from "lucide-react";
+import { useRef, useState } from "react";
+import { Sprout, Users, Drum, ArrowRight, HeartHandshake, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Reveal } from "@/components/ui/Reveal";
@@ -17,6 +17,14 @@ import { Lightbox } from "@/components/ui/Lightbox";
  * y #community siguen existiendo como anclas internas.
  */
 const GALLERY_IMAGES = [
+  {
+    src: "/images/training-english.JPEG",
+    alt: "Children in a free English lesson at the Move Zanzibar Community Centre",
+  },
+  {
+    src: "/images/centrum.jpg",
+    alt: "The Move Zanzibar training yard, with its painted mural wall, palm trees, and training equipment on the astroturf",
+  },
   {
     src: "/images/gallery-circle.jpg",
     alt: "A group training session with visitors and local artists gathered at the painted mural wall",
@@ -35,6 +43,7 @@ export function YouthCommunity() {
   const { t } = useLanguage();
   const youth = t.youth;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <section id="our-work" className="scroll-mt-20 bg-white py-20 sm:py-28">
@@ -49,7 +58,7 @@ export function YouthCommunity() {
         {/* ------------------------------------------------- Youth Program */}
         <div
           id="youth-program"
-          className="mt-14 grid scroll-mt-24 items-start gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14"
+          className="mt-14 grid scroll-mt-24 items-center gap-10 lg:grid-cols-[0.68fr_1.32fr] lg:gap-14"
         >
           <Reveal delay={80}>
             <div className="mx-auto flex max-w-sm flex-col gap-4 lg:mx-0 lg:max-w-none">
@@ -62,12 +71,12 @@ export function YouthCommunity() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[1600/667] w-full overflow-hidden rounded-3xl shadow-photo">
+              <div className="relative aspect-[1600/667] w-full overflow-hidden rounded-3xl shadow-photo lg:hidden">
                 <Image
                   src="/images/training-english.JPEG"
                   alt="Children in a free English lesson at the Move Zanzibar Community Centre"
                   fill
-                  sizes="(max-width: 1024px) 90vw, 34vw"
+                  sizes="90vw"
                   className="object-cover"
                 />
               </div>
@@ -152,22 +161,24 @@ export function YouthCommunity() {
                 <ArrowRight size={14} aria-hidden />
               </a>
             </div>
+            {/* Foto ancha debajo de la tarjeta del show: ocupa el espacio que
+                antes quedaba vacío junto a la columna de fotos. */}
+            <div className="relative mt-6 aspect-[1600/667] w-full overflow-hidden rounded-3xl shadow-photo">
+              <Image
+                src="/images/community-play.JPEG"
+                alt="Children playing together on the painted mural wall at the Move Zanzibar Community Centre"
+                fill
+                sizes="(max-width: 1024px) 90vw, 60vw"
+                className="object-cover"
+              />
+            </div>
           </Reveal>
           <Reveal delay={140} className="order-1 lg:order-2 lg:pt-3">
-            <div className="mx-auto flex max-w-sm flex-col gap-4 lg:mx-0 lg:max-w-none">
+            <div className="mx-auto max-w-sm lg:mx-0 lg:max-w-none">
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl shadow-photo">
                 <Image
                   src="/images/community-life.jpg"
                   alt="Children from the Move Zanzibar community sitting together, listening to a young performer with a microphone, palm trees behind them"
-                  fill
-                  sizes="(max-width: 1024px) 90vw, 36vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative aspect-[1600/667] w-full overflow-hidden rounded-3xl shadow-photo">
-                <Image
-                  src="/images/community-play.JPEG"
-                  alt="Children playing together on the painted mural wall at the Move Zanzibar Community Centre"
                   fill
                   sizes="(max-width: 1024px) 90vw, 36vw"
                   className="object-cover"
@@ -178,8 +189,36 @@ export function YouthCommunity() {
         </div>
 
         {/* ------------------------------------------------------ Galería */}
+        {/* Mobile/tablet: tira horizontal con scroll (el alto no crece si se
+            suman más fotos). Desktop: la grilla original, sin tocar. */}
         <Reveal delay={80} className="mt-20">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative lg:hidden">
+            <div
+              ref={galleryRef}
+              className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {GALLERY_IMAGES.map((image, i) => (
+                <button
+                  key={image.src}
+                  type="button"
+                  onClick={() => setLightboxIndex(i)}
+                  aria-label={`Ver imagen ampliada: ${image.alt}`}
+                  className="group relative aspect-4/3 h-56 shrink-0 snap-start overflow-hidden rounded-3xl shadow-photo transition-transform duration-300 hover:-translate-y-1 hover:shadow-card-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:h-64"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 70vw, 340px"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </button>
+              ))}
+            </div>
+
+          </div>
+
+          <div className="hidden lg:grid lg:grid-cols-5 lg:gap-4">
             {GALLERY_IMAGES.map((image, i) => (
               <button
                 key={image.src}
@@ -192,7 +231,7 @@ export function YouthCommunity() {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 640px) 90vw, 30vw"
+                  sizes="30vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </button>

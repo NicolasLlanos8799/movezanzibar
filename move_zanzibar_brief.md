@@ -21,7 +21,7 @@ This document contains the official branding guidelines and core website content
 ## 📝 2. Core Website Content & Copywriting
 
 ### Hero Section
-*   **Tagline:** Empowering Youth Through Art & Movement
+*   **Tagline:** Community Centre (Acrobatics, After School Activities & Learning, NGO)
 *   **Value Proposition:** We provide young talents in Zanzibar with the opportunity to develop their skills and build a better future.
 
 ---

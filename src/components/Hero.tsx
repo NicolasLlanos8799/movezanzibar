@@ -60,8 +60,8 @@ export function Hero() {
         </span>
 
         <h1 className="max-w-3xl font-display text-[clamp(2.1rem,5.5vw,3.75rem)] font-extrabold uppercase leading-[1.05] text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.55),0_1px_3px_rgba(0,0,0,0.6)]">
-          {hero.titleLine1}{" "}
-          <span className="font-hand text-brand-soft text-[1.35em] font-normal normal-case leading-none">
+          {hero.titleLine1}
+          <span className="mt-1.5 block font-display text-[0.4em] font-semibold normal-case leading-snug tracking-wide text-brand-soft">
             {hero.titleAccent}
           </span>
         </h1>

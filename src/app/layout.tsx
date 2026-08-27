@@ -37,7 +37,7 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Move Zanzibar — Empowering Youth Through Art & Movement",
+    default: "Move Zanzibar — Community Centre",
     template: "%s · Move Zanzibar",
   },
   description:
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE.url,
     siteName: SITE.name,
-    title: "Move Zanzibar — Empowering Youth Through Art & Movement",
+    title: "Move Zanzibar — Community Centre",
     description:
       "A community of young acrobats and dancers in Jambiani, Zanzibar — free youth training and a life built around movement.",
     images: [{ url: "/images/og.jpg", width: 1200, height: 630 }],
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Move Zanzibar",
-    description: "Empowering Youth Through Art & Movement.",
+    description: "Community Centre (Acrobatics, After School Activities & Learning, NGO).",
     images: ["/images/og.jpg"],
   },
 };

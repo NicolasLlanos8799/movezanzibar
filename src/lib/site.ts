@@ -8,7 +8,7 @@ export const SITE = {
   /** Enlace directo a la ubicación exacta del centro en Google Maps. */
   mapsUrl:
     "https://www.google.com/maps/place//data=!4m2!3m1!1s0x185d17d90b0f6889:0xf1d789ce0f3b0e48?sa=X&ved=1t:8290&ictx=111",
-  url: "https://movezanzibar.com",
+  url: "https://www.move-zanzibar.com",
   email: "zanzibarmove@gmail.com",
   /** Número de contacto para bookings, donaciones o cualquier consulta. */
   phone: "+255 718 360 613",
