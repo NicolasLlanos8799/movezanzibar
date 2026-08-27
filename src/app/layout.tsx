@@ -39,7 +39,7 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Move Zanzibar — Acrobatics Show in Jambiani, Zanzibar",
+    default: "Move Zanzibar — Community Centre & Acrobatics Show, Jambiani",
     template: "%s · Move Zanzibar",
   },
   description:
@@ -67,14 +67,14 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE.url,
     siteName: SITE.name,
-    title: "Move Zanzibar — Acrobatics Show in Jambiani, Zanzibar",
+    title: "Move Zanzibar — Community Centre & Acrobatics Show, Jambiani",
     description:
       "A live acrobatics show by young African performers, every Saturday in Jambiani, Zanzibar — plus a free youth training program and a community built around movement.",
     images: [{ url: "/images/og.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Move Zanzibar — Acrobatics Show in Jambiani",
+    title: "Move Zanzibar — Community Centre & Acrobatics Show",
     description: "Live acrobatics show every Saturday in Jambiani, Zanzibar. Community Centre (Acrobatics, After School Activities & Learning, NGO).",
     images: ["/images/og.jpg"],
   },
