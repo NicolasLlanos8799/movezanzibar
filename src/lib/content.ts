@@ -164,7 +164,7 @@ export const CONTENT: Record<Lang, Copy> = {
       communityTitle: "A Living Community",
       communityBody:
         "Our artists live, train, cook, and manage the center together — a life built on Ubuntu, the philosophy of \"I am because we are.\" In collective acrobatics, a teammate's safety depends literally on you, which builds a fraternity that runs deep.",
-      communityTag: "Show, every Saturday · 6\u20138 PM in Move Zanzibar",
+      communityTag: "Live Show every Saturday · 6\u20138 PM in Move Zanzibar",
       bookShowCta: "Book the show for your event",
     },
     donate: {
@@ -285,7 +285,7 @@ export const CONTENT: Record<Lang, Copy> = {
       communityTitle: "Jamii Hai",
       communityBody:
         "Wasanii wetu wanaishi, kufanya mazoezi, kupika na kuendesha kituo pamoja — maisha yaliyojengwa juu ya Ubuntu, falsafa ya \"mimi nipo kwa sababu sisi tupo.\" Katika sarakasi ya pamoja, usalama wa mwenzako unategemea wewe moja kwa moja, jambo linalojenga undugu wa kina.",
-      communityTag: "Onyesho, kila Jumamosi · saa 12\u20132 jioni katika Move Zanzibar",
+      communityTag: "Onyesho la Moja kwa Moja kila Jumamosi · saa 12\u20132 jioni katika Move Zanzibar",
       bookShowCta: "Kodisha onyesho kwa tukio lako",
     },
     donate: {

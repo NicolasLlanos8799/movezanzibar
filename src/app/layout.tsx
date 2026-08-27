@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Montserrat, Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import { Analytics } from "@/components/Analytics";
+import { StructuredData } from "@/components/StructuredData";
 import { SITE } from "@/lib/site";
 
 /* --------------------------------------------------------------------------
@@ -37,15 +39,19 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Move Zanzibar — Community Centre",
+    default: "Move Zanzibar — Acrobatics Show in Jambiani, Zanzibar",
     template: "%s · Move Zanzibar",
   },
   description:
-    "Move Zanzibar is a community of young acrobats and dancers in Jambiani. We nurture talent, run a free youth training program, and live and grow together through movement.",
+    "See a live acrobatics show by young African performers every Saturday in Jambiani, Zanzibar. Move Zanzibar is a community centre with a free youth training program in acrobatics, dance, and English.",
   keywords: [
+    "acrobatics show Zanzibar",
+    "acrobatics show Jambiani",
+    "African acrobats",
+    "Zanzibar acrobats",
     "Move Zanzibar",
     "Jambiani",
-    "Zanzibar acrobats",
+    "things to do in Jambiani",
     "youth program Tanzania",
     "community art Zanzibar",
   ],
@@ -61,16 +67,19 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE.url,
     siteName: SITE.name,
-    title: "Move Zanzibar — Community Centre",
+    title: "Move Zanzibar — Acrobatics Show in Jambiani, Zanzibar",
     description:
-      "A community of young acrobats and dancers in Jambiani, Zanzibar — free youth training and a life built around movement.",
+      "A live acrobatics show by young African performers, every Saturday in Jambiani, Zanzibar — plus a free youth training program and a community built around movement.",
     images: [{ url: "/images/og.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Move Zanzibar",
-    description: "Community Centre (Acrobatics, After School Activities & Learning, NGO).",
+    title: "Move Zanzibar — Acrobatics Show in Jambiani",
+    description: "Live acrobatics show every Saturday in Jambiani, Zanzibar. Community Centre (Acrobatics, After School Activities & Learning, NGO).",
     images: ["/images/og.jpg"],
+  },
+  alternates: {
+    canonical: SITE.url,
   },
   verification: {
     google: "RRMEv025tmMoCzdqzlexvXeWm8dJ1IZSrvsnYR_-NTs",
@@ -90,6 +99,8 @@ export default function RootLayout({
       className={`${montserrat.variable} ${inter.variable} ${caveat.variable}`}
     >
       <body className="antialiased">
+        <StructuredData />
+        <Analytics />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

@@ -7,6 +7,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Reveal } from "@/components/ui/Reveal";
 import { Lightbox } from "@/components/ui/Lightbox";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Sección combinada "Youth Program & Community": dos filas alternadas,
@@ -117,6 +118,7 @@ export function YouthCommunity() {
                 </p>
                 <a
                   href="#support"
+                  onClick={() => trackEvent("cta_support", { section: "youth_program" })}
                   className="mt-2 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand hover:text-brand-dark"
                 >
                   {youth.trainingCtaLabel}
@@ -155,6 +157,7 @@ export function YouthCommunity() {
               </div>
               <a
                 href="#booking"
+                onClick={() => trackEvent("cta_book_show", { section: "community" })}
                 className="flex items-center justify-center gap-1.5 border-t border-white/20 bg-white/10 px-5 py-3 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/20"
               >
                 {youth.bookShowCta}

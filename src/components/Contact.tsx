@@ -5,6 +5,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Reveal } from "@/components/ui/Reveal";
 import { SITE, mailtoLink, whatsappLink } from "@/lib/site";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Cierre informativo: solo contacto directo, sin CTAs de venta ni formulario.
@@ -53,6 +54,7 @@ export function Contact() {
                   "Show booking request — Move Zanzibar",
                   "Hello Move Zanzibar! We'd like to book your show for an event.\n\nDate:\nVenue / location:\nMore details:\n\n"
                 )}
+                onClick={() => trackEvent("cta_book_show", { section: "contact_booking", channel: "email" })}
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-bold text-brand transition-colors hover:bg-white/90"
               >
                 <Mail size={16} aria-hidden />
@@ -64,6 +66,7 @@ export function Contact() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent("cta_book_show", { section: "contact_booking", channel: "whatsapp" })}
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-white/70 px-5 py-3 text-sm font-bold text-white transition-colors hover:border-white hover:bg-white/10"
               >
                 <MessageCircle size={16} aria-hidden />
@@ -77,6 +80,7 @@ export function Contact() {
           <div className="mx-auto mt-8 grid max-w-2xl gap-4 sm:grid-cols-2">
             <a
               href={mailtoLink("Hello Move Zanzibar", "Hello Move Zanzibar,\n\n")}
+              onClick={() => trackEvent("contact_click", { channel: "email" })}
               className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 text-left transition-colors hover:border-brand hover:bg-white/[0.07]"
             >
               <span className="grid size-11 shrink-0 place-items-center rounded-full bg-brand/20 text-brand">
@@ -96,6 +100,7 @@ export function Contact() {
               href={whatsappLink("Hello Move Zanzibar,")}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("contact_click", { channel: "whatsapp" })}
               className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 text-left transition-colors hover:border-brand hover:bg-white/[0.07]"
             >
               <span className="grid size-11 shrink-0 place-items-center rounded-full bg-brand/20 text-brand">
@@ -115,6 +120,7 @@ export function Contact() {
               href={SITE.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("contact_click", { channel: "maps" })}
               className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 text-left transition-colors hover:border-turquoise hover:bg-white/[0.07] sm:col-span-2"
             >
               <span className="grid size-11 shrink-0 place-items-center rounded-full bg-turquoise/20 text-turquoise">
@@ -152,6 +158,7 @@ export function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
+                  onClick={() => trackEvent("social_click", { platform: label.toLowerCase() })}
                   className="grid size-11 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-brand hover:text-brand"
                 >
                   <Icon size={18} aria-hidden />

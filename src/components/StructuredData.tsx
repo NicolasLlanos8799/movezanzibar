@@ -15,11 +15,12 @@ export function StructuredData() {
     "@context": "https://schema.org",
     "@type": "NGO",
     name: SITE.name,
+    alternateName: "Move Zanzibar Acrobatics Show",
     url: SITE.url,
     logo: `${SITE.url}/icon-512.png`,
     image: `${SITE.url}/images/og.jpg`,
     description:
-      "Move Zanzibar is a community of young acrobats and dancers in Jambiani. We nurture talent, run a free youth training program, and live and grow together through movement.",
+      "Move Zanzibar puts on a live acrobatics show by young African performers every Saturday in Jambiani, Zanzibar. We nurture talent, run a free youth training program, and live and grow together through movement.",
     email: SITE.email,
     telephone: SITE.phone,
     address: {

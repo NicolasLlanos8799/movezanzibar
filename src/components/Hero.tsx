@@ -5,6 +5,7 @@ import { MapPin, ArrowDown, Drum } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { Button } from "@/components/ui/Button";
 import { SITE } from "@/lib/site";
+import { trackEvent } from "@/lib/analytics";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -67,7 +68,12 @@ export function Hero() {
         </h1>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Button href="#who-we-are" variant="primary" size="lg">
+          <Button
+            href="#who-we-are"
+            variant="primary"
+            size="lg"
+            onClick={() => trackEvent("cta_discover_story", { section: "hero" })}
+          >
             {hero.cta}
             <ArrowDown
               size={18}
@@ -77,6 +83,7 @@ export function Hero() {
 
           <a
             href="#booking"
+            onClick={() => trackEvent("cta_book_show", { section: "hero" })}
             className="inline-flex items-center gap-2 rounded-full bg-turquoise px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-card transition-transform hover:-translate-y-0.5 hover:bg-[#0098ac] sm:text-sm"
           >
             <Drum size={15} aria-hidden />

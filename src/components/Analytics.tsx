@@ -18,8 +18,8 @@ const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
  *   NEXT_PUBLIC_CLARITY_ID  → Project ID de Clarity
  *                              (Settings → Overview, es el código en la URL)
  *
- * La verificación de Search Console va aparte, en layout.tsx (metadata.verification),
- * vía el env var GOOGLE_SITE_VERIFICATION.
+ * La verificación de Search Console ya está cargada aparte, directo en
+ * layout.tsx (metadata.verification) — no depende de env vars.
  */
 export function Analytics() {
   return (

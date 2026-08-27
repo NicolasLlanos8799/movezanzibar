@@ -5,6 +5,7 @@ import { Menu, X, Languages, HeartHandshake } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { LANGUAGE_LABEL, LANGUAGES } from "@/lib/content";
 import { Logo } from "@/components/Logo";
+import { trackEvent } from "@/lib/analytics";
 
 export function Navbar() {
   const { t, lang, setLang } = useLanguage();
@@ -64,6 +65,7 @@ export function Navbar() {
           {supportLink && (
             <a
               href={`#${supportLink.id}`}
+              onClick={() => trackEvent("cta_support", { section: "navbar" })}
               className="inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2.5 font-display text-sm font-bold text-white shadow-card transition-transform hover:-translate-y-0.5 hover:bg-brand-dark sm:px-5"
             >
               <HeartHandshake size={16} aria-hidden />

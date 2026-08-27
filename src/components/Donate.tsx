@@ -19,6 +19,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Reveal } from "@/components/ui/Reveal";
 import { DONATION, mailtoLink, whatsappLink, type DonationTierId } from "@/lib/site";
+import { trackEvent } from "@/lib/analytics";
 
 type Selection = DonationTierId | "custom" | null;
 
@@ -79,15 +80,20 @@ export function Donate() {
   function selectTier(id: DonationTierId) {
     setSelected(id);
     setCustomConfirmed(false);
+    trackEvent("donate_select_tier", { tier: id, amount: DONATION.tiers.find((t) => t.id === id)?.amount });
   }
 
   function selectCustom() {
     setSelected("custom");
     setCustomConfirmed(false);
+    trackEvent("donate_select_tier", { tier: "custom" });
   }
 
   function confirmCustomAmount() {
-    if (hasValidCustomAmount) setCustomConfirmed(true);
+    if (hasValidCustomAmount) {
+      setCustomConfirmed(true);
+      trackEvent("donate_confirm_custom_amount", { amount: parsedCustomAmount });
+    }
   }
 
   const donationMessage = confirmedAmount
@@ -98,6 +104,7 @@ export function Donate() {
     try {
       await navigator.clipboard.writeText(value);
       setCopiedField(field);
+      trackEvent("donate_copy_bank_field", { field });
       setTimeout(() => setCopiedField((f) => (f === field ? null : f)), 1800);
     } catch {
       /* clipboard no disponible: el valor sigue visible para copiar a mano */
@@ -381,6 +388,7 @@ export function Donate() {
               <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
                 <a
                   href={mailtoLink(`Donation to Move Zanzibar — $${confirmedAmount}`, donationMessage)}
+                  onClick={() => trackEvent("donate_notify", { channel: "email", amount: confirmedAmount ?? undefined })}
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brand px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-dark"
                 >
                   <Mail size={16} aria-hidden />
@@ -390,6 +398,7 @@ export function Donate() {
                   href={whatsappLink(donationMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("donate_notify", { channel: "whatsapp", amount: confirmedAmount ?? undefined })}
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-line px-5 py-3 text-sm font-bold text-charcoal transition-colors hover:border-brand hover:text-brand"
                 >
                   <MessageCircle size={16} aria-hidden />
