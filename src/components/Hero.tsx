@@ -34,6 +34,7 @@ export function Hero() {
             <Image
               src="/images/hero-mobile.jpg"
               alt="Entrance to the Move Zanzibar Community Centre in Jambiani, with its painted 'Karibuni Sana / Welcome' mural and a palm tree"
+              title="Entrance to the Move Zanzibar Community Centre in Jambiani"
               fill
               priority
               sizes="100vw"
@@ -42,6 +43,7 @@ export function Hero() {
             <Image
               src="/images/portada.JPEG"
               alt="Entrance to the Move Zanzibar Community Centre in Jambiani, with its painted mural wall and palm trees"
+              title="Entrance to the Move Zanzibar Community Centre in Jambiani"
               fill
               priority
               sizes="100vw"
@@ -72,6 +74,7 @@ export function Hero() {
             href="#who-we-are"
             variant="primary"
             size="lg"
+            title={hero.cta}
             onClick={() => trackEvent("cta_discover_story", { section: "hero" })}
           >
             {hero.cta}
@@ -84,6 +87,7 @@ export function Hero() {
           <a
             href="#booking"
             onClick={() => trackEvent("cta_book_show", { section: "hero" })}
+            title={hero.saturdayBadge}
             className="inline-flex items-center gap-2 rounded-full bg-turquoise px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-card transition-transform hover:-translate-y-0.5 hover:bg-[#0098ac] sm:text-sm"
           >
             <Drum size={15} aria-hidden />

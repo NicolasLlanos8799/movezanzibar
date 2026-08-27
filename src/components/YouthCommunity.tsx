@@ -67,6 +67,7 @@ export function YouthCommunity() {
                 <Image
                   src="/images/youth.jpg"
                   alt="A Move Zanzibar acrobat balancing in a handstand on a teammate's shoulder, on the beach in Jambiani"
+                  title="A Move Zanzibar acrobat balancing in a handstand on a teammate's shoulder, on the beach in Jambiani"
                   fill
                   sizes="(max-width: 1024px) 90vw, 34vw"
                   className="object-cover"
@@ -76,6 +77,7 @@ export function YouthCommunity() {
                 <Image
                   src="/images/training-english.JPEG"
                   alt="Children in a free English lesson at the Move Zanzibar Community Centre"
+                  title="Children in a free English lesson at the Move Zanzibar Community Centre"
                   fill
                   sizes="90vw"
                   className="object-cover"
@@ -119,6 +121,7 @@ export function YouthCommunity() {
                 <a
                   href="#support"
                   onClick={() => trackEvent("cta_support", { section: "youth_program" })}
+                  title={youth.trainingCtaLabel}
                   className="mt-2 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand hover:text-brand-dark"
                 >
                   {youth.trainingCtaLabel}
@@ -158,6 +161,7 @@ export function YouthCommunity() {
               <a
                 href="#booking"
                 onClick={() => trackEvent("cta_book_show", { section: "community" })}
+                title={youth.bookShowCta}
                 className="flex items-center justify-center gap-1.5 border-t border-white/20 bg-white/10 px-5 py-3 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/20"
               >
                 {youth.bookShowCta}
@@ -170,6 +174,7 @@ export function YouthCommunity() {
               <Image
                 src="/images/community-play.JPEG"
                 alt="Children playing together on the painted mural wall at the Move Zanzibar Community Centre"
+                title="Children playing together on the painted mural wall at the Move Zanzibar Community Centre"
                 fill
                 sizes="(max-width: 1024px) 90vw, 60vw"
                 className="object-cover"
@@ -182,6 +187,7 @@ export function YouthCommunity() {
                 <Image
                   src="/images/community-life.jpg"
                   alt="Children from the Move Zanzibar community sitting together, listening to a young performer with a microphone, palm trees behind them"
+                  title="Children from the Move Zanzibar community sitting together, listening to a young performer with a microphone, palm trees behind them"
                   fill
                   sizes="(max-width: 1024px) 90vw, 36vw"
                   className="object-cover"
@@ -211,6 +217,7 @@ export function YouthCommunity() {
                   <Image
                     src={image.src}
                     alt={image.alt}
+                    title={image.alt}
                     fill
                     sizes="(max-width: 640px) 70vw, 340px"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -233,6 +240,7 @@ export function YouthCommunity() {
                 <Image
                   src={image.src}
                   alt={image.alt}
+                  title={image.alt}
                   fill
                   sizes="30vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"

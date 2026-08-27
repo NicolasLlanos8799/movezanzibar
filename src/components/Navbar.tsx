@@ -45,7 +45,7 @@ export function Navbar() {
         aria-label="Main"
         className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8"
       >
-        <a href="#top" aria-label="Move Zanzibar — home">
+        <a href="#top" aria-label="Move Zanzibar — home" title="Move Zanzibar — Home">
           <Logo />
         </a>
 
@@ -54,6 +54,7 @@ export function Navbar() {
             <a
               key={link.id}
               href={`#${link.id}`}
+              title={link.label}
               className="rounded-full px-4 py-2 font-display text-sm font-semibold text-charcoal-soft transition-colors hover:text-brand"
             >
               {link.label}
@@ -66,6 +67,7 @@ export function Navbar() {
             <a
               href={`#${supportLink.id}`}
               onClick={() => trackEvent("cta_support", { section: "navbar" })}
+              title={supportLink.label}
               className="inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2.5 font-display text-sm font-bold text-white shadow-card transition-transform hover:-translate-y-0.5 hover:bg-brand-dark sm:px-5"
             >
               <HeartHandshake size={16} aria-hidden />
@@ -104,6 +106,7 @@ export function Navbar() {
               key={link.id}
               href={`#${link.id}`}
               onClick={() => setOpen(false)}
+              title={link.label}
               className="rounded-xl px-4 py-3.5 font-display text-lg font-bold text-charcoal transition-colors hover:bg-cloud hover:text-brand"
             >
               {link.label}

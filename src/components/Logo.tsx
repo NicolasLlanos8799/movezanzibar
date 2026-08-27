@@ -17,6 +17,7 @@ export function Logo({
       <Image
         src="/brand/logo.png"
         alt="Move Zanzibar"
+        title="Move Zanzibar"
         width={44}
         height={44}
         priority

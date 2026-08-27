@@ -38,6 +38,7 @@ export function WhoWeAre() {
               <Image
                 src="/images/who-we-are.JPEG"
                 alt="Move Zanzibar acrobats forming a human pyramid handstand against the sky in Jambiani"
+                title="Move Zanzibar acrobats forming a human pyramid handstand against the sky in Jambiani"
                 fill
                 sizes="(max-width: 1024px) 90vw, 45vw"
                 className="object-cover"
@@ -47,6 +48,7 @@ export function WhoWeAre() {
               <Image
                 src="/images/whoweare-sky.JPEG"
                 alt="A Move Zanzibar acrobat in a one-arm handstand held aloft against the sky, palm trees below"
+                title="A Move Zanzibar acrobat in a one-arm handstand held aloft against the sky, palm trees below"
                 fill
                 sizes="(max-width: 1024px) 90vw, 45vw"
                 className="object-cover"

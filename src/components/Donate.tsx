@@ -152,6 +152,7 @@ export function Donate() {
               <Image
                 src="/images/donate-impact.JPEG"
                 alt="A father and his young son looking out at the ocean in Jambiani, Zanzibar"
+                title="A father and his young son looking out at the ocean in Jambiani, Zanzibar"
                 fill
                 sizes="(min-width: 768px) 768px, 100vw"
                 className="object-cover"
@@ -389,6 +390,7 @@ export function Donate() {
                 <a
                   href={mailtoLink(`Donation to Move Zanzibar — $${confirmedAmount}`, donationMessage)}
                   onClick={() => trackEvent("donate_notify", { channel: "email", amount: confirmedAmount ?? undefined })}
+                  title={donate.notifyEmailLabel}
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brand px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-dark"
                 >
                   <Mail size={16} aria-hidden />
@@ -399,6 +401,7 @@ export function Donate() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent("donate_notify", { channel: "whatsapp", amount: confirmedAmount ?? undefined })}
+                  title={donate.notifyWhatsappLabel}
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-line px-5 py-3 text-sm font-bold text-charcoal transition-colors hover:border-brand hover:text-brand"
                 >
                   <MessageCircle size={16} aria-hidden />

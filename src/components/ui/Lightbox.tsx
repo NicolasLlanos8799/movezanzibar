@@ -120,6 +120,7 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
           <Image
             src={current.src}
             alt={current.alt}
+            title={current.alt}
             fill
             sizes="90vw"
             className="object-contain"

@@ -17,6 +17,7 @@ export function Founder() {
             <Image
               src="/images/founder.JPEG"
               alt="Ndimu, founder of Move Zanzibar, smiling on the beach in Zanzibar"
+              title="Ndimu, founder of Move Zanzibar, smiling on the beach in Zanzibar"
               fill
               sizes="(max-width: 1024px) 85vw, 40vw"
               className="object-cover"
