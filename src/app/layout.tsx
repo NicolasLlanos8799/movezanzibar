@@ -72,6 +72,9 @@ export const metadata: Metadata = {
     description: "Community Centre (Acrobatics, After School Activities & Learning, NGO).",
     images: ["/images/og.jpg"],
   },
+  verification: {
+    google: "RRMEv025tmMoCzdqzlexvXeWm8dJ1IZSrvsnYR_-NTs",
+  },
 };
 
 export const viewport: Viewport = {

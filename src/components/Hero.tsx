@@ -66,10 +66,6 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-white sm:text-lg [text-shadow:0_2px_10px_rgba(0,0,0,0.6)]">
-          {hero.subtitle}
-        </p>
-
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Button href="#who-we-are" variant="primary" size="lg">
             {hero.cta}

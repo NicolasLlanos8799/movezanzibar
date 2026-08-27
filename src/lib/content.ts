@@ -28,7 +28,6 @@ export type Copy = {
     titleLine1: string;
     /** Frase corta que se renderiza en Caveat (acento manuscrito, eco del logo). */
     titleAccent: string;
-    subtitle: string;
     cta: string;
     /** Insignia destacada del show semanal de los sábados. */
     saturdayBadge: string;
@@ -129,8 +128,6 @@ export const CONTENT: Record<Lang, Copy> = {
       eyebrow: "Jambiani · Zanzibar",
       titleLine1: "Community Centre",
       titleAccent: "Acrobatics, After School Activities & Learning",
-      subtitle:
-        "We provide young talents in Zanzibar with the opportunity to develop their skills and build a better future.",
       cta: "Discover our story",
       saturdayBadge: "Live show every Saturday · 6\u20138 PM",
     },
@@ -252,8 +249,6 @@ export const CONTENT: Record<Lang, Copy> = {
       eyebrow: "Jambiani · Zanzibar",
       titleLine1: "Kituo cha Jamii",
       titleAccent: "Sarakasi, Shughuli za Baada ya Shule na Kujifunza",
-      subtitle:
-        "Tunawapa vipaji vichanga vya Zanzibar fursa ya kukuza ujuzi wao na kujenga maisha bora ya baadaye.",
       cta: "Gundua hadithi yetu",
       saturdayBadge: "Onyesho la moja kwa moja kila Jumamosi · Saa 12\u20132 jioni",
     },

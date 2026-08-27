@@ -27,9 +27,12 @@ export const SITE = {
 } as const;
 
 export function mailtoLink(subject: string, body?: string) {
-  const params = new URLSearchParams({ subject });
-  if (body) params.set("body", body);
-  return `mailto:${SITE.email}?${params.toString()}`;
+  // OJO: no usar URLSearchParams aquí — codifica los espacios como "+",
+  // que los clientes de correo (mailto:) no interpretan como espacio y
+  // muestran literal. encodeURIComponent usa %20, que sí funciona.
+  const params = [`subject=${encodeURIComponent(subject)}`];
+  if (body) params.push(`body=${encodeURIComponent(body)}`);
+  return `mailto:${SITE.email}?${params.join("&")}`;
 }
 
 /** Número de WhatsApp sin espacios ni signos, para el enlace wa.me. */
