@@ -44,11 +44,11 @@ export function WhoWeAre() {
                 className="object-cover"
               />
             </div>
-            <div className="relative aspect-[1800/746] w-full overflow-hidden rounded-3xl shadow-photo">
+            <div className="relative aspect-[2878/1221] w-full overflow-hidden rounded-3xl shadow-photo">
               <Image
-                src="/images/whoweare-sky.JPEG"
-                alt="A Move Zanzibar acrobat in a one-arm handstand held aloft against the sky, palm trees below"
-                title="A Move Zanzibar acrobat in a one-arm handstand held aloft against the sky, palm trees below"
+                src="/images/girls-dancing-1.JPG"
+                alt="Girls from the Move Zanzibar community dancing together"
+                title="Girls from the Move Zanzibar community dancing together"
                 fill
                 sizes="(max-width: 1024px) 90vw, 45vw"
                 className="object-cover"

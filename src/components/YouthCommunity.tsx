@@ -182,12 +182,22 @@ export function YouthCommunity() {
             </div>
           </Reveal>
           <Reveal delay={140} className="order-1 lg:order-2 lg:pt-3">
-            <div className="mx-auto max-w-sm lg:mx-0 lg:max-w-none">
+            <div className="mx-auto flex max-w-sm flex-col gap-4 lg:mx-0 lg:max-w-none">
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl shadow-photo">
                 <Image
                   src="/images/community-life.jpg"
                   alt="Children from the Move Zanzibar community sitting together, listening to a young performer with a microphone, palm trees behind them"
                   title="Children from the Move Zanzibar community sitting together, listening to a young performer with a microphone, palm trees behind them"
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 36vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[2880/1800] w-full overflow-hidden rounded-3xl shadow-photo">
+                <Image
+                  src="/images/girls-dancing-2.PNG"
+                  alt="Girls from the Move Zanzibar community dancing together"
+                  title="Girls from the Move Zanzibar community dancing together"
                   fill
                   sizes="(max-width: 1024px) 90vw, 36vw"
                   className="object-cover"
