@@ -193,7 +193,7 @@ export function YouthCommunity() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[2880/1800] w-full overflow-hidden rounded-3xl shadow-photo">
+              <div className="relative aspect-[2880/1208] w-full overflow-hidden rounded-3xl shadow-photo">
                 <Image
                   src="/images/girls-dancing-2.PNG"
                   alt="Girls from the Move Zanzibar community dancing together"
