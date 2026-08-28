@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { MapPin, ArrowDown, Drum } from "lucide-react";
+import { ArrowDown, Drum } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { Button } from "@/components/ui/Button";
 import { SITE } from "@/lib/site";
@@ -57,11 +57,6 @@ export function Hero() {
       {/* Sin velo sobre la foto — la legibilidad viene de un text-shadow en
           cada línea de texto, no de oscurecer la imagen. */}
       <div className="relative flex h-full max-w-7xl flex-col justify-end px-5 pb-16 sm:px-8 sm:pb-20 mx-auto">
-        <span className="mb-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-white/30 bg-black/35 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
-          <MapPin size={12} aria-hidden />
-          {hero.eyebrow}
-        </span>
-
         <h1 className="max-w-3xl font-display text-[clamp(2.1rem,5.5vw,3.75rem)] font-extrabold uppercase leading-[1.05] text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.55),0_1px_3px_rgba(0,0,0,0.6)]">
           {hero.titleLine1}
           <span className="mt-1.5 block font-display text-[0.4em] font-semibold normal-case leading-snug tracking-wide text-brand-soft">
