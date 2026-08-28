@@ -32,9 +32,9 @@ export function Hero() {
         ) : (
           <>
             <Image
-              src="/images/hero-mobile.jpg"
-              alt="Entrance to the Move Zanzibar Community Centre in Jambiani, with its painted 'Karibuni Sana / Welcome' mural and a palm tree"
-              title="Entrance to the Move Zanzibar Community Centre in Jambiani"
+              src="/images/centrum.jpg"
+              alt="The Move Zanzibar training yard, with its painted mural wall, palm trees, and training equipment on the astroturf"
+              title="The Move Zanzibar training yard in Jambiani"
               fill
               priority
               sizes="100vw"

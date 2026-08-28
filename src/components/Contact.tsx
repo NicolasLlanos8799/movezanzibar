@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, Instagram, Facebook, Star, Ticket, MessageCircle } from "lucide-react";
+import { Mail, MapPin, Phone, Instagram, Facebook, Star } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Reveal } from "@/components/ui/Reveal";
@@ -28,54 +28,6 @@ export function Contact() {
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/70">
             {contact.body}
           </p>
-        </Reveal>
-
-        {/* Contrataciones: separado y con diseño propio (marca, no neutro)
-            para que no se confunda con "escribinos para saludar". */}
-        <Reveal delay={70}>
-          <div id="booking" className="mx-auto mt-10 max-w-2xl scroll-mt-28 rounded-3xl bg-gradient-to-br from-brand to-brand-dark p-6 text-left shadow-card-hover sm:p-8">
-            <div className="flex items-start gap-4">
-              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white/15 text-white">
-                <Ticket size={22} aria-hidden />
-              </span>
-              <div>
-                <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
-                  {contact.bookingTitle}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/85 sm:text-base">
-                  {contact.bookingBody}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={mailtoLink(
-                  "Show booking request — Move Zanzibar",
-                  "Hello Move Zanzibar! We'd like to book your show for an event.\n\nDate:\nVenue / location:\nMore details:\n\n"
-                )}
-                onClick={() => trackEvent("cta_book_show", { section: "contact_booking", channel: "email" })}
-                title={contact.bookingEmailLabel}
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-bold text-brand transition-colors hover:bg-white/90"
-              >
-                <Mail size={16} aria-hidden />
-                {contact.bookingEmailLabel}
-              </a>
-              <a
-                href={whatsappLink(
-                  "Hello Move Zanzibar! We'd like to book your show for an event. Here are the details — Date: / Venue: / More info:"
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("cta_book_show", { section: "contact_booking", channel: "whatsapp" })}
-                title={contact.bookingWhatsappLabel}
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-white/70 px-5 py-3 text-sm font-bold text-white transition-colors hover:border-white hover:bg-white/10"
-              >
-                <MessageCircle size={16} aria-hidden />
-                {contact.bookingWhatsappLabel}
-              </a>
-            </div>
-          </div>
         </Reveal>
 
         <Reveal delay={100}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   Building2,
@@ -49,6 +49,7 @@ export function Donate() {
   const [customAmount, setCustomAmount] = useState("");
   const [customConfirmed, setCustomConfirmed] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const bankPanelRef = useRef<HTMLDivElement | null>(null);
 
   const justification =
     selected === "custom"
@@ -76,6 +77,15 @@ export function Donate() {
   /** Solo se revela el panel de banco/monto una vez que hay un monto en firme
    * (los tiers son inmediatos; el monto libre necesita el paso de confirmar). */
   const isReady = confirmedAmount !== null;
+
+  /** En celulares, al elegir un plan el panel de datos bancarios queda fuera
+   * de la vista (debajo del plegue) — lo llevamos a la vista automáticamente
+   * en vez de dejar que el usuario piense que no pasó nada. */
+  useEffect(() => {
+    if (isReady) {
+      bankPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [isReady]);
 
   function selectTier(id: DonationTierId) {
     setSelected(id);
@@ -294,19 +304,19 @@ export function Donate() {
           <Reveal delay={0} className="mt-8">
             {/* Tarjeta de confirmación: diseño propio (oscuro), separado de las
                 tarjetas de selección — refuerza "esto es lo que estás por donar". */}
-            <div className="flex items-center gap-4 rounded-3xl bg-charcoal px-6 py-5 text-white shadow-card-hover">
+            <div ref={bankPanelRef} className="flex flex-wrap items-center gap-x-4 gap-y-3 rounded-3xl bg-charcoal px-6 py-5 text-white shadow-card-hover">
               <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand text-white">
                 <PartyPopper size={22} aria-hidden />
               </span>
-              <div className="min-w-0 flex-1">
+              <div className="min-w-0 flex-1 basis-40">
                 <span className="block text-xs font-bold uppercase tracking-[0.16em] text-white/50">
                   {donate.confirmedKicker}
                 </span>
-                <span className="font-display text-3xl font-extrabold leading-none text-white">
+                <span className="block break-all font-display text-2xl font-extrabold leading-tight text-white sm:text-3xl sm:leading-none">
                   ${confirmedAmount}
                 </span>
                 {confirmedLabel && (
-                  <span className="ml-2 text-sm font-semibold text-white/60">{confirmedLabel}</span>
+                  <span className="text-sm font-semibold text-white/60">{confirmedLabel}</span>
                 )}
               </div>
               {selected === "custom" && (

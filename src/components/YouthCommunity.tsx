@@ -23,10 +23,6 @@ const GALLERY_IMAGES = [
     alt: "Children in a free English lesson at the Move Zanzibar Community Centre",
   },
   {
-    src: "/images/centrum.jpg",
-    alt: "The Move Zanzibar training yard, with its painted mural wall, palm trees, and training equipment on the astroturf",
-  },
-  {
     src: "/images/gallery-circle.jpg",
     alt: "A group training session with visitors and local artists gathered at the painted mural wall",
   },
@@ -70,16 +66,6 @@ export function YouthCommunity() {
                   title="A Move Zanzibar acrobat balancing in a handstand on a teammate's shoulder, on the beach in Jambiani"
                   fill
                   sizes="(max-width: 1024px) 90vw, 34vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative aspect-[1600/667] w-full overflow-hidden rounded-3xl shadow-photo lg:hidden">
-                <Image
-                  src="/images/training-english.JPEG"
-                  alt="Children in a free English lesson at the Move Zanzibar Community Centre"
-                  title="Children in a free English lesson at the Move Zanzibar Community Centre"
-                  fill
-                  sizes="90vw"
                   className="object-cover"
                 />
               </div>
