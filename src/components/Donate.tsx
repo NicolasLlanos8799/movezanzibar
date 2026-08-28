@@ -124,8 +124,11 @@ export function Donate() {
   const bankRows: { key: string; label: string; value: string }[] = [
     { key: "accountName", label: donate.fieldLabels.accountName, value: DONATION.bank.accountName },
     { key: "bankName", label: donate.fieldLabels.bankName, value: DONATION.bank.bankName },
+    { key: "branchName", label: donate.fieldLabels.branchName, value: DONATION.bank.branchName },
     { key: "accountNumber", label: donate.fieldLabels.accountNumber, value: DONATION.bank.accountNumber },
     { key: "swift", label: donate.fieldLabels.swift, value: DONATION.bank.swift },
+    { key: "branchCode", label: donate.fieldLabels.branchCode, value: DONATION.bank.branchCode },
+    { key: "sortCode", label: donate.fieldLabels.sortCode, value: DONATION.bank.sortCode },
   ];
 
   return (
@@ -387,6 +390,53 @@ export function Donate() {
                   ))}
                 </dl>
               </div>
+            </div>
+
+            {/* Bancos corresponsales: solo hace falta si el banco emisor pide un
+                intermediario en esa moneda para transferencias internacionales.
+                Card aparte y más liviana — no compite con los datos principales. */}
+            <div className="mt-4 rounded-3xl border border-line bg-cloud p-5 sm:p-6">
+              <h4 className="font-display text-sm font-bold text-charcoal">
+                {donate.correspondentTitle}
+              </h4>
+              <p className="mt-1 text-xs leading-relaxed text-charcoal-soft">
+                {donate.correspondentNote}
+              </p>
+              <dl className="mt-4 divide-y divide-line">
+                {DONATION.bank.correspondents.map((c) => {
+                  const key = `correspondent-${c.currency}`;
+                  return (
+                    <div
+                      key={key}
+                      className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0"
+                    >
+                      <div>
+                        <dt className="text-xs font-bold uppercase tracking-wide text-charcoal-soft/70">
+                          {c.currency} — {c.bankName}
+                        </dt>
+                        <dd className="mt-0.5 text-sm font-semibold text-charcoal">{c.bic}</dd>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => copy(key, c.bic)}
+                        className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-xs font-bold text-charcoal-soft transition-colors hover:border-brand hover:bg-brand-soft hover:text-brand"
+                      >
+                        {copiedField === key ? (
+                          <>
+                            <Check size={13} aria-hidden />
+                            {donate.copiedLabel}
+                          </>
+                        ) : (
+                          <>
+                            <Copy size={13} aria-hidden />
+                            {donate.copyLabel}
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  );
+                })}
+              </dl>
             </div>
 
             <div className="mt-5 rounded-3xl border border-line bg-white p-6 text-center shadow-card sm:p-7">

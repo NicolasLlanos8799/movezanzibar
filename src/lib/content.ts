@@ -78,9 +78,14 @@ export type Copy = {
     fieldLabels: {
       accountName: string;
       bankName: string;
+      branchName: string;
       accountNumber: string;
       swift: string;
+      branchCode: string;
+      sortCode: string;
     };
+    correspondentTitle: string;
+    correspondentNote: string;
     copyLabel: string;
     copiedLabel: string;
     thankYouNote: string;
@@ -129,7 +134,7 @@ export const CONTENT: Record<Lang, Copy> = {
       titleLine1: "Community Centre",
       titleAccent: "Acrobatics, After School Activities & Learning",
       cta: "Discover our story",
-      saturdayBadge: "Live show every Saturday · 6\u20138 PM",
+      saturdayBadge: "Live show every Saturday · 4:30\u20136:30 PM",
     },
     who: {
       kicker: "Who We Are",
@@ -164,7 +169,7 @@ export const CONTENT: Record<Lang, Copy> = {
       communityTitle: "A Living Community",
       communityBody:
         "Our artists live, train, cook, and manage the center together — a life built on Ubuntu, the philosophy of \"I am because we are.\" In collective acrobatics, a teammate's safety depends literally on you, which builds a fraternity that runs deep.",
-      communityTag: "Live Show every Saturday · 6\u20138 PM in Move Zanzibar",
+      communityTag: "Live Show every Saturday · 4:30\u20136:30 PM in Move Zanzibar",
       bookShowCta: "Book the show for your event",
     },
     donate: {
@@ -197,9 +202,15 @@ export const CONTENT: Record<Lang, Copy> = {
       fieldLabels: {
         accountName: "Account holder",
         bankName: "Bank",
+        branchName: "Branch",
         accountNumber: "Account number",
         swift: "SWIFT / BIC",
+        branchCode: "Branch code",
+        sortCode: "Sort code",
       },
+      correspondentTitle: "Sending USD, GBP, or EUR from abroad?",
+      correspondentNote:
+        "If your bank asks for an intermediary/correspondent bank for your currency, use these.",
       copyLabel: "Copy",
       copiedLabel: "Copied",
       thankYouNote:
@@ -250,7 +261,7 @@ export const CONTENT: Record<Lang, Copy> = {
       titleLine1: "Kituo cha Jamii",
       titleAccent: "Sarakasi, Shughuli za Baada ya Shule na Kujifunza",
       cta: "Gundua hadithi yetu",
-      saturdayBadge: "Onyesho la moja kwa moja kila Jumamosi · Saa 12\u20132 jioni",
+      saturdayBadge: "Onyesho la moja kwa moja kila Jumamosi · Saa 10:30 mchana\u201312:30 jioni",
     },
     who: {
       kicker: "Sisi ni Nani",
@@ -285,7 +296,7 @@ export const CONTENT: Record<Lang, Copy> = {
       communityTitle: "Jamii Hai",
       communityBody:
         "Wasanii wetu wanaishi, kufanya mazoezi, kupika na kuendesha kituo pamoja — maisha yaliyojengwa juu ya Ubuntu, falsafa ya \"mimi nipo kwa sababu sisi tupo.\" Katika sarakasi ya pamoja, usalama wa mwenzako unategemea wewe moja kwa moja, jambo linalojenga undugu wa kina.",
-      communityTag: "Onyesho la Moja kwa Moja kila Jumamosi · saa 12\u20132 jioni katika Move Zanzibar",
+      communityTag: "Onyesho la Moja kwa Moja kila Jumamosi · saa 10:30 mchana\u201312:30 jioni katika Move Zanzibar",
       bookShowCta: "Kodisha onyesho kwa tukio lako",
     },
     donate: {
@@ -318,9 +329,15 @@ export const CONTENT: Record<Lang, Copy> = {
       fieldLabels: {
         accountName: "Mmiliki wa akaunti",
         bankName: "Benki",
+        branchName: "Tawi",
         accountNumber: "Namba ya akaunti",
         swift: "SWIFT / BIC",
+        branchCode: "Namba ya tawi",
+        sortCode: "Sort code",
       },
+      correspondentTitle: "Unatuma USD, GBP, au EUR kutoka nje?",
+      correspondentNote:
+        "Kama benki yako inahitaji benki ya kati (correspondent bank) kwa fedha yako, tumia hizi.",
       copyLabel: "Nakili",
       copiedLabel: "Imenakiliwa",
       thankYouNote:

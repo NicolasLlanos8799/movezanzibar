@@ -45,10 +45,7 @@ export function whatsappLink(text: string) {
  * Donaciones — transferencia bancaria directa a la cuenta que usa el centro
  * (sin pasarela de pago, tal como se decidió).
  *
- * ⚠️ TODO ESTO ES PLACEHOLDER. Reemplaza cada campo con los datos reales de
- * Ndimu/Move Zanzibar antes de publicar — mientras tanto el panel de
- * transferencia muestra "TBD" de forma visible para que sea imposible
- * publicarlo por error sin notarlo.
+ * Datos bancarios reales (confirmados por el banco, ver carta de ABSA).
  */
 export const DONATION = {
   /** Los 3 montos fijos (USD) + la opción de monto libre en el componente. */
@@ -58,10 +55,20 @@ export const DONATION = {
     { id: "transform", amount: 500 },
   ],
   bank: {
-    accountName: "TBD — account holder name",
-    bankName: "TBD — bank name",
-    accountNumber: "TBD — account number / IBAN",
-    swift: "TBD — SWIFT / BIC",
+    accountName: "Clalence Valentino Lutumo",
+    bankName: "ABSA Bank Tanzania Limited",
+    branchName: "Zanzibar Branch, Ground Floor, ZSTC Building, Malawi Rd",
+    accountNumber: "TZS 0031220254",
+    swift: "BARCTZTZ",
+    branchCode: "003",
+    sortCode: "020003",
+    /** Bancos corresponsales: para transferencias internacionales en USD/GBP/EUR
+     * cuando el banco emisor pide un intermediario en esa moneda. */
+    correspondents: [
+      { currency: "USD", bankName: "JP Morgan Chase Bank", bic: "CHASUS33" },
+      { currency: "GBP", bankName: "Standard Chartered Bank London", bic: "SCBLGB2L" },
+      { currency: "EUR", bankName: "Societe Generale Bank", bic: "SOGEFRPP" },
+    ],
   },
 } as const;
 
