@@ -8,6 +8,7 @@ import { Kicker } from "@/components/ui/Kicker";
 import { Reveal } from "@/components/ui/Reveal";
 import { Lightbox } from "@/components/ui/Lightbox";
 import { trackEvent } from "@/lib/analytics";
+import { splitTimeRange } from "@/lib/text";
 
 /**
  * Sección combinada "Youth Program & Community": dos filas alternadas,
@@ -41,6 +42,9 @@ export function YouthCommunity() {
   const youth = t.youth;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const galleryRef = useRef<HTMLDivElement | null>(null);
+
+  /** El horario ("4:30–6 PM") no debe partirse en dos líneas en celular. */
+  const communityTagParts = splitTimeRange(youth.communityTag);
 
   return (
     <section id="our-work" className="scroll-mt-20 bg-white py-20 sm:py-28">
@@ -141,7 +145,11 @@ export function YouthCommunity() {
                   <Drum size={20} aria-hidden />
                 </span>
                 <p className="text-sm font-bold leading-snug text-white sm:text-base">
-                  {youth.communityTag}
+                  {communityTagParts.before}
+                  {communityTagParts.time && (
+                    <span className="whitespace-nowrap">{communityTagParts.time}</span>
+                  )}
+                  {communityTagParts.after}
                 </p>
               </div>
               <a

@@ -134,7 +134,7 @@ export const CONTENT: Record<Lang, Copy> = {
       titleLine1: "Community Centre",
       titleAccent: "Acrobatics, After School Activities & Learning",
       cta: "Discover our story",
-      saturdayBadge: "Live show every Saturday · 4:30\u20136:30 PM",
+      saturdayBadge: "Live show every Saturday · 4:30\u20136 PM",
     },
     who: {
       kicker: "Who We Are",
@@ -169,7 +169,7 @@ export const CONTENT: Record<Lang, Copy> = {
       communityTitle: "A Living Community",
       communityBody:
         "Our artists live, train, cook, and manage the center together — a life built on Ubuntu, the philosophy of \"I am because we are.\" In collective acrobatics, a teammate's safety depends literally on you, which builds a fraternity that runs deep.",
-      communityTag: "Live Show every Saturday · 4:30\u20136:30 PM in Move Zanzibar",
+      communityTag: "Live Show every Saturday · 4:30\u20136 PM in Move Zanzibar",
       bookShowCta: "Book the show for your event",
     },
     donate: {
@@ -261,7 +261,7 @@ export const CONTENT: Record<Lang, Copy> = {
       titleLine1: "Kituo cha Jamii",
       titleAccent: "Sarakasi, Shughuli za Baada ya Shule na Kujifunza",
       cta: "Gundua hadithi yetu",
-      saturdayBadge: "Onyesho la moja kwa moja kila Jumamosi · Saa 10:30 mchana\u201312:30 jioni",
+      saturdayBadge: "Onyesho la moja kwa moja kila Jumamosi · Saa 10:30 mchana\u201312 jioni",
     },
     who: {
       kicker: "Sisi ni Nani",
@@ -296,7 +296,7 @@ export const CONTENT: Record<Lang, Copy> = {
       communityTitle: "Jamii Hai",
       communityBody:
         "Wasanii wetu wanaishi, kufanya mazoezi, kupika na kuendesha kituo pamoja — maisha yaliyojengwa juu ya Ubuntu, falsafa ya \"mimi nipo kwa sababu sisi tupo.\" Katika sarakasi ya pamoja, usalama wa mwenzako unategemea wewe moja kwa moja, jambo linalojenga undugu wa kina.",
-      communityTag: "Onyesho la Moja kwa Moja kila Jumamosi · saa 10:30 mchana\u201312:30 jioni katika Move Zanzibar",
+      communityTag: "Onyesho la Moja kwa Moja kila Jumamosi · saa 10:30 mchana\u201312 jioni katika Move Zanzibar",
       bookShowCta: "Kodisha onyesho kwa tukio lako",
     },
     donate: {

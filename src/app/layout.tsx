@@ -4,6 +4,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { Analytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
+import { StylesheetGuard } from "@/components/StylesheetGuard";
 import { SITE } from "@/lib/site";
 
 /* --------------------------------------------------------------------------
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     template: "%s · Move Zanzibar",
   },
   description:
-    "See a live acrobatics show by young African performers every Saturday in Jambiani, Zanzibar. Move Zanzibar is a community centre with a free youth training program in acrobatics, dance, and English.",
+    "Live acrobatics show every Saturday in Jambiani, Zanzibar. A community centre with a free youth training program in acrobatics, dance, and English.",
   keywords: [
     "acrobatics show Zanzibar",
     "acrobatics show Jambiani",
@@ -71,6 +72,7 @@ export const metadata: Metadata = {
     description:
       "A live acrobatics show by young African performers, every Saturday in Jambiani, Zanzibar — plus a free youth training program and a community built around movement.",
     images: [{ url: "/images/og.jpg", width: 1200, height: 630 }],
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
@@ -101,6 +103,7 @@ export default function RootLayout({
       <body className="antialiased">
         <StructuredData />
         <Analytics />
+        <StylesheetGuard />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

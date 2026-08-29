@@ -29,6 +29,14 @@ export function StructuredData() {
       addressRegion: "Zanzibar",
       addressCountry: "TZ",
     },
+    // Coordenadas reales del centro (confirmadas en su ficha de Google Maps).
+    // Ayudan a que Google lo vincule mejor con Maps y con búsquedas locales
+    // ("cerca de mí", "things to do in Jambiani").
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -6.3157279,
+      longitude: 39.5449244,
+    },
     sameAs: [SITE.instagram, SITE.tiktok, SITE.facebook, SITE.tripadvisor],
   };
 
