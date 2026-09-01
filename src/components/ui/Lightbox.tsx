@@ -7,6 +7,11 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 export type LightboxImage = {
   src: string;
   alt: string;
+  /** "image" por defecto. "video" renderiza <video> en vez de <Image>. */
+  type?: "image" | "video";
+  /** Solo para videos: miniatura que se usa en la tira de miniaturas y como
+   *  poster antes de reproducir. */
+  poster?: string;
 };
 
 type LightboxProps = {
@@ -117,15 +122,31 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
           className="animate-lightbox-image relative h-full max-h-[70vh] w-full max-w-5xl sm:max-h-[74vh]"
           onClick={(event) => event.stopPropagation()}
         >
-          <Image
-            src={current.src}
-            alt={current.alt}
-            title={current.alt}
-            fill
-            sizes="90vw"
-            className="object-contain"
-            priority
-          />
+          {current.type === "video" ? (
+            // El video real solo se pide cuando alguien abre el lightbox
+            // (nunca en la grilla) — clave para el público con internet
+            // lento en Tanzania.
+            <video
+              key={current.src}
+              src={current.src}
+              poster={current.poster}
+              controls
+              autoPlay
+              loop
+              playsInline
+              className="h-full w-full object-contain"
+            />
+          ) : (
+            <Image
+              src={current.src}
+              alt={current.alt}
+              title={current.alt}
+              fill
+              sizes="90vw"
+              className="object-contain"
+              priority
+            />
+          )}
         </div>
 
         {total > 1 && (
@@ -169,7 +190,13 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
                     : "opacity-45 hover:opacity-75"
                 }`}
               >
-                <Image src={image.src} alt="" fill sizes="56px" className="object-cover" />
+                <Image
+                  src={image.type === "video" ? image.poster ?? image.src : image.src}
+                  alt=""
+                  fill
+                  sizes="56px"
+                  className="object-cover"
+                />
               </button>
             ))}
           </div>

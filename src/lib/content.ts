@@ -59,6 +59,18 @@ export type Copy = {
     communityTag: string;
     bookShowCta: string;
   };
+  show: {
+    kicker: string;
+    title: string;
+    subtitle: string;
+    /** Mismo horario que hero.saturdayBadge / youth.communityTag. */
+    schedule: string;
+    bookCta: string;
+    /** CTA del teaser en el home que lleva a la página /show. */
+    viewGalleryCta: string;
+    emptyTitle: string;
+    emptyBody: string;
+  };
   donate: {
     kicker: string;
     title: string;
@@ -171,6 +183,18 @@ export const CONTENT: Record<Lang, Copy> = {
         "Our artists live, train, cook, and manage the center together — a life built on Ubuntu, the philosophy of \"I am because we are.\" In collective acrobatics, a teammate's safety depends literally on you, which builds a fraternity that runs deep.",
       communityTag: "Live Show every Saturday · 4:30\u20136 PM in Move Zanzibar",
       bookShowCta: "Book the show for your event",
+    },
+    show: {
+      kicker: "The Show",
+      title: "See what happens every Saturday",
+      subtitle:
+        "Fire, live drumming, acrobatics, and dance — performed by the same kids and teenagers who train here all week. A look at what the show feels like.",
+      schedule: "Live show every Saturday · 4:30\u20136 PM",
+      bookCta: "Book the show for your event",
+      viewGalleryCta: "See photos & videos from the show",
+      emptyTitle: "Photos and clips coming soon",
+      emptyBody:
+        "We're adding real photos and short clips from the Saturday show right here. Check back soon — or come see it live.",
     },
     donate: {
       kicker: "Support the Center",
@@ -298,6 +322,18 @@ export const CONTENT: Record<Lang, Copy> = {
         "Wasanii wetu wanaishi, kufanya mazoezi, kupika na kuendesha kituo pamoja — maisha yaliyojengwa juu ya Ubuntu, falsafa ya \"mimi nipo kwa sababu sisi tupo.\" Katika sarakasi ya pamoja, usalama wa mwenzako unategemea wewe moja kwa moja, jambo linalojenga undugu wa kina.",
       communityTag: "Onyesho la Moja kwa Moja kila Jumamosi · saa 10:30 mchana\u201312 jioni katika Move Zanzibar",
       bookShowCta: "Kodisha onyesho kwa tukio lako",
+    },
+    show: {
+      kicker: "Onyesho",
+      title: "Ona kinachotokea kila Jumamosi",
+      subtitle:
+        "Moto, ngoma za moja kwa moja, sarakasi, na dansi — zinachezwa na watoto na vijana walewale wanaofanya mazoezi hapa wiki nzima. Ladha ya jinsi onyesho linavyohisi.",
+      schedule: "Onyesho la moja kwa moja kila Jumamosi · Saa 10:30 mchana\u201312 jioni",
+      bookCta: "Kodisha onyesho kwa tukio lako",
+      viewGalleryCta: "Ona picha na video za onyesho",
+      emptyTitle: "Picha na video vinakuja hivi karibuni",
+      emptyBody:
+        "Tunaongeza picha halisi na klipu fupi za onyesho la Jumamosi hapa hapa. Rudi tena hivi karibuni — au njoo uone moja kwa moja.",
     },
     donate: {
       kicker: "Unga Mkono Kituo",

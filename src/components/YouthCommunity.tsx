@@ -232,7 +232,7 @@ export function YouthCommunity() {
 
           </div>
 
-          <div className="hidden lg:grid lg:grid-cols-5 lg:gap-4">
+          <div className="hidden lg:grid lg:grid-cols-4 lg:gap-4">
             {GALLERY_IMAGES.map((image, i) => (
               <button
                 key={image.src}
@@ -246,7 +246,7 @@ export function YouthCommunity() {
                   alt={image.alt}
                   title={image.alt}
                   fill
-                  sizes="30vw"
+                  sizes="25vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </button>

@@ -1,16 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Languages, HeartHandshake } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { LANGUAGE_LABEL, LANGUAGES } from "@/lib/content";
 import { Logo } from "@/components/Logo";
 import { trackEvent } from "@/lib/analytics";
+import { FEATURES } from "@/lib/site";
 
 export function Navbar() {
   const { t, lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  /**
+   * La mayoría de los links son anclas dentro del home ("#who-we-are", etc).
+   * "show" es la excepción: vive en su propia página (/show), no en el home.
+   * Desde cualquier otra página, las anclas del home se resuelven contra
+   * "/" (navegación + scroll a la sección).
+   */
+  const hrefFor = (id: string) => {
+    if (id === "show") return "/show";
+    if (id === "top") return isHome ? "#top" : "/";
+    return isHome ? `#${id}` : `/#${id}`;
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,7 +46,9 @@ export function Navbar() {
   // separa del resto para renderizarlo como botón destacado (acceso rápido
   // a donación, siempre visible) en vez de un link de texto más.
   const allLinks = t.nav.links.slice(1);
-  const links = allLinks.filter((link) => link.id !== "support");
+  const links = allLinks.filter(
+    (link) => link.id !== "support" && (link.id !== "show" || FEATURES.saturdaysShow)
+  );
   const supportLink = allLinks.find((link) => link.id === "support");
 
   return (
@@ -45,7 +63,7 @@ export function Navbar() {
         aria-label="Main"
         className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8"
       >
-        <a href="#top" aria-label="Move Zanzibar — home" title="Move Zanzibar — Home">
+        <a href={hrefFor("top")} aria-label="Move Zanzibar — home" title="Move Zanzibar — Home">
           <Logo />
         </a>
 
@@ -53,7 +71,7 @@ export function Navbar() {
           {links.map((link) => (
             <a
               key={link.id}
-              href={`#${link.id}`}
+              href={hrefFor(link.id)}
               title={link.label}
               className="rounded-full px-4 py-2 font-display text-sm font-semibold text-charcoal-soft transition-colors hover:text-brand"
             >
@@ -65,7 +83,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           {supportLink && (
             <a
-              href={`#${supportLink.id}`}
+              href={hrefFor(supportLink.id)}
               onClick={() => trackEvent("cta_support", { section: "navbar" })}
               title={supportLink.label}
               className="inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2.5 font-display text-sm font-bold text-white shadow-card transition-transform hover:-translate-y-0.5 hover:bg-brand-dark sm:px-5"
@@ -104,7 +122,7 @@ export function Navbar() {
           {links.map((link) => (
             <a
               key={link.id}
-              href={`#${link.id}`}
+              href={hrefFor(link.id)}
               onClick={() => setOpen(false)}
               title={link.label}
               className="rounded-xl px-4 py-3.5 font-display text-lg font-bold text-charcoal transition-colors hover:bg-cloud hover:text-brand"

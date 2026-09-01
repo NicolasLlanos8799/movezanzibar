@@ -1,4 +1,15 @@
 /**
+ * Interruptores de features que todavía no están listas para producción.
+ * En false: el código sigue ahí (nada se borra), pero queda invisible —
+ * sin link en el navbar, sin teaser en el home, y la ruta devuelve 404.
+ * Cuando esté lista para publicarse, cambiar a true acá (un solo lugar).
+ */
+export const FEATURES = {
+  /** Página /show + teaser en el home + link "Saturdays Show" en el navbar. */
+  saturdaysShow: false,
+} as const;
+
+/**
  * Configuración global del sitio.
  * ⚠️ REEMPLAZA LOS PLACEHOLDERS por los datos reales antes de publicar.
  */
